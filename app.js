@@ -34,7 +34,12 @@ const getImages = (query) => {
     .then(data => showImages(data.hits))
     .catch(err => console.log(err))
 }
-
+//Enter key press handler
+document.getElementById('search').addEventListener("keypress", function(event){
+    if(event.key == 'Enter'){
+      document.getElementById('search-btn').click();
+    }
+  });
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
@@ -56,7 +61,7 @@ const createSlider = () => {
   }
   const duration = document.getElementById('duration').value || 1000;
   if (duration < 0) {
-    alert('Hey, Time can not be negative');
+    alert('Hey, Time can not be negative!!!');
   }
   else {
     // crate slider previous next area
